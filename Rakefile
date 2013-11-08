@@ -10,6 +10,7 @@ rescue LoadError
 end
 
 Motion::Project::App.setup do |app|
-  # Use `rake config' to see complete project settings.
-  app.name = 'bitcoined'
+  app.name = 'Bitcoined'
+  app.icons = Dir.glob("resources/icon*.png").map{ |icon| icon.split("/").last }
+  app.prerendered_icon = true
 end
