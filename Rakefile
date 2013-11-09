@@ -11,6 +11,7 @@ end
 
 Motion::Project::App.setup do |app|
   app.name = 'Bitcoined'
+  app.identifier = 'S7Y8U49M75.com.mikaelharsjo.bitcoined'
   app.icons = Dir.glob("resources/icon*.png").map{ |icon| icon.split("/").last }
   app.prerendered_icon = true
 end
