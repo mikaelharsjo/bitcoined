@@ -2,6 +2,8 @@
 
 An iOS app that keeps you totally up to date with the bitcoin rate.
 
+![Logo](/resources/icon_big_rounded.png)
+
 ## Features
 * shows current rate in selected currency and marketplace (default, MtGox/USD)
 	* in the app
