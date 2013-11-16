@@ -12,7 +12,7 @@ class BitcoinController < UIViewController
 		@label = UILabel.alloc.initWithFrame(CGRectZero)
 		@label.text = @value
 		@label.color = UIColor.whiteColor
-		@label.setFont(UIFont.systemFontOfSize(60))
+		@label.setFont(UIFont.fontWithName('HelveticaNeue-UltraLight', size: 70))
 		@label.sizeToFit
 		@label.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50)
 		self.view.addSubview @label
