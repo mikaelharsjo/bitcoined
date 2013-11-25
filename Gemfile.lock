@@ -2,6 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     bubble-wrap (1.3.0)
+    motion-layout (0.0.1)
+    motion-pp (1.0)
     rake (10.1.0)
 
 PLATFORMS
@@ -9,4 +11,6 @@ PLATFORMS
 
 DEPENDENCIES
   bubble-wrap
+  motion-layout
+  motion-pp
   rake
