@@ -2,6 +2,8 @@
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 require 'bubble-wrap/http'
+require 'motion-layout'
+require 'motion-pp'
 
 begin
   require 'bundler'

@@ -7,14 +7,32 @@ class BitcoinController < UIViewController
 	def viewDidLoad
 		super
 
-		self.view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed('images/golden_gradient.jpg'))
+		view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed('images/golden_gradient.jpg'))
 
 		@label = UILabel.alloc.initWithFrame(CGRectZero)
 		@label.text = @value
 		@label.color = UIColor.whiteColor
-		@label.setFont(UIFont.fontWithName('HelveticaNeue-UltraLight', size: 70))
+		@label.setFont(UIFont.fontWithName('HelveticaNeue-UltraLight', size: 74))
 		@label.sizeToFit
-		@label.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2 - 50)
-		self.view.addSubview @label
+		view.addSubview @label
+
+		Motion::Layout.new do |layout|
+			layout.view view
+			layout.subviews "label" => @label
+			layout.metrics "top" => 200, "margin" => 30
+			layout.vertical "|-top-[label]"
+			layout.horizontal "|-margin-[label]"
+		end
+	end
+
+	def willAnimateRotationToInterfaceOrientation(orientation, duration: duration)
+		view.constraints.each { |constraint| view.removeConstraint constraint }
+		Motion::Layout.new do |layout|
+			layout.view view
+			layout.subviews "label" => @label
+			layout.metrics "top" => 110, "margin" => 100
+			layout.vertical "|-top-[label]"
+			layout.horizontal "|-margin-[label]"
+		end
 	end
 end
