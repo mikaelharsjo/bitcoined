@@ -23,6 +23,10 @@ class BitcoinController < UIViewController
 			layout.vertical "|-top-[label]"
 			layout.horizontal "|-margin-[label]"
 		end
+
+		view.when_swiped do
+			p 'swiped'
+		end
 	end
 
 	def willAnimateRotationToInterfaceOrientation(orientation, duration: duration)
