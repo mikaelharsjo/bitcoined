@@ -11,15 +11,12 @@ class NewsController < UITableViewController
 	end
 
 	def fetch_from_google_news
-		p 'fetch_from_google_news'
 		self.refreshControl.beginRefreshing
 
 		feed_parser = BW::RSSParser.new("https://news.google.com/news/feeds?q=bitcoin&output=rss")
 		feed_parser.parse do |item|
-		# called asynchronously as items get parsed
-			p item.title
-			self.refreshControl.endRefreshing
 			@news << item
+			self.refreshControl.endRefreshing
 			self.tableView.reloadData
 		end
 	end
@@ -30,10 +27,6 @@ class NewsController < UITableViewController
 		cell = tableView.dequeueReusableCellWithIdentifier(@reuseIdentifier) || begin
 			UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:@reuseIdentifier)
 		end
-
-		# put your data in the cell
-		p @news[indexPath.row].inspect
-		@news.each {|item| p item.title}
 
 		cell.textLabel.text = @news[indexPath.row].title
 		cell
@@ -46,5 +39,9 @@ class NewsController < UITableViewController
 	def tableView(tableView, didSelectRowAtIndexPath:indexPath)
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 		App.open_url @news[indexPath.row].link
+	end
+
+	def tableView(tableView, titleForHeaderInSection:section)
+		'Bitcoin news'
 	end
 end
