@@ -2,7 +2,7 @@ class NewsController < UITableViewController
 	def viewDidLoad
 		@news = []
 		self.refreshControl = UIRefreshControl.alloc.init
-		p @news
+		self.tableView.delegate = self # extract class?
 		self.refreshControl.addTarget self, action: 'fetch_from_google_news', forControlEvents: UIControlEventValueChanged
 	end
 
@@ -40,8 +40,11 @@ class NewsController < UITableViewController
 	end
 
 	def tableView(tableView, numberOfRowsInSection: section)
-	# return the number of rows
-		p @news.count
 		@news.count
+	end
+
+	def tableView(tableView, didSelectRowAtIndexPath:indexPath)
+		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+		App.open_url @news[indexPath.row].link
 	end
 end
