@@ -27,6 +27,7 @@ class BitcoinController < UIViewController
 		view.when_swiped do
 			p 'swiped'
 			news_view = NewsController.alloc.init
+			news_view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal
 			self.presentViewController news_view, animated:true, completion:nil
 		end
 	end
