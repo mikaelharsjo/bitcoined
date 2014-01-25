@@ -1,16 +1,16 @@
 class BitcoinController < UIViewController
-	def initWithValue value
-		@value = value
-		init
-	end
-
 	def viewDidLoad
 		super
+
+		BW::HTTP.get('http://data.mtgox.com/api/2/BTCUSD/money/ticker_fast') do |response|
+			json = BW::JSON.parse(response.body.to_str)
+			value = json['data']['last_local']['display_short']
+			@label.text = value
+		end
 
 		view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed('images/golden_gradient.jpg'))
 
 		@label = UILabel.alloc.initWithFrame(CGRectZero)
-		@label.text = @value
 		@label.color = UIColor.whiteColor
 		@label.setFont(UIFont.fontWithName('HelveticaNeue-UltraLight', size: 74))
 		@label.sizeToFit
@@ -26,6 +26,8 @@ class BitcoinController < UIViewController
 
 		view.when_swiped do
 			p 'swiped'
+			news_view = NewsController.alloc.init
+			self.presentViewController news_view, animated:true, completion:nil
 		end
 	end
 

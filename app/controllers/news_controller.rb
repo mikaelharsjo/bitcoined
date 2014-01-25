@@ -2,8 +2,13 @@ class NewsController < UITableViewController
 	def viewDidLoad
 		@news = []
 		self.refreshControl = UIRefreshControl.alloc.init
-		self.tableView.delegate = self # extract class?
+		self.tableView.delegate = self
 		self.refreshControl.addTarget self, action: 'fetch_from_google_news', forControlEvents: UIControlEventValueChanged
+
+		view.when_swiped do
+			news_view = BitcoinController.alloc.init
+			self.presentViewController news_view, animated:true, completion:nil
+		end
 	end
 
 	def viewDidAppear(animated)
