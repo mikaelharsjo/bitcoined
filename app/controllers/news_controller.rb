@@ -6,7 +6,7 @@ class NewsController < UITableViewController
 		self.refreshControl.addTarget self, action: 'fetch_from_google_news', forControlEvents: UIControlEventValueChanged
 
 		view.when_swiped do
-			rate_view = BitcoinController.alloc.init
+			rate_view = RateController.alloc.init
 			rate_view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal
 			self.presentViewController rate_view, animated:true, completion:nil
 		end

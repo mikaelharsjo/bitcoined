@@ -5,7 +5,7 @@ class AppDelegate
 	def applicationDidBecomeActive(application)
 		@window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
 		@window.makeKeyAndVisible
-		@window.rootViewController = BitcoinController.alloc.init
+		@window.rootViewController = RateController.alloc.init
 
 		true
 	end

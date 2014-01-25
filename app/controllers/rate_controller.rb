@@ -1,4 +1,4 @@
-class BitcoinController < UIViewController
+class RateController < UIViewController
 	def viewDidLoad
 		super
 
