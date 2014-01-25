@@ -8,8 +8,15 @@ class NewsController < UITableViewController
 		view.when_swiped do
 			rate_view = RateController.alloc.init
 			rate_view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal
-			self.presentViewController rate_view, animated:true, completion:nil
+			self.presentViewController rate_view, animated: true, completion: nil
 		end
+
+		self.tableView.backgroundColor = UIColor.clearColor
+		self.tableView.opaque = false
+		tempImageView = UIImageView.alloc.initWithImage(UIImage.imageNamed "images/golden_gradient.jpg")
+		tempImageView.setFrame self.tableView.frame 
+		self.tableView.backgroundView = tempImageView
+		tempImageView.release
 	end
 
 	def viewDidAppear(animated)
@@ -35,6 +42,8 @@ class NewsController < UITableViewController
 		end
 
 		cell.textLabel.text = @news[indexPath.row].title
+		cell.textLabel.textColor = UIColor.whiteColor
+		cell.backgroundColor = UIColor.clearColor
 		cell
 	end
 
@@ -48,6 +57,6 @@ class NewsController < UITableViewController
 	end
 
 	def tableView(tableView, titleForHeaderInSection:section)
-		'Bitcoin news'
+		'News about bitcoin'
 	end
 end
