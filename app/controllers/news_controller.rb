@@ -40,11 +40,16 @@ class NewsController < UITableViewController
 		@reuseIdentifier ||= "CELL_IDENTIFIER"
 
 		cell = tableView.dequeueReusableCellWithIdentifier(@reuseIdentifier) || begin
-			UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:@reuseIdentifier)
+			UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:@reuseIdentifier)
 		end
 
-		cell.textLabel.text = @news[indexPath.row].title
+		current_news = @news[indexPath.row]
+		dash_index = current_news.title.index(' - ')
+		title = current_news.title[0, dash_index]
+		cell.textLabel.text = title
 		cell.textLabel.textColor = UIColor.whiteColor
+		cell.detailTextLabel.text = current_news.title[dash_index + 2, current_news.title.length]
+		cell.detailTextLabel.textColor = UIColor.whiteColor
 		cell.backgroundColor = UIColor.clearColor
 		cell
 	end
