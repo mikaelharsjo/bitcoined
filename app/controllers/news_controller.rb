@@ -46,10 +46,10 @@ class NewsController < UITableViewController
 		current_news = @news[indexPath.row]
 		dash_index = current_news.title.index(' - ')
 		title = current_news.title[0, dash_index]
-		cell.textLabel.text = title
-		cell.textLabel.textColor = UIColor.whiteColor
-		cell.detailTextLabel.text = current_news.title[dash_index + 2, current_news.title.length]
+		cell.detailTextLabel.text = title
 		cell.detailTextLabel.textColor = UIColor.whiteColor
+		cell.textLabel.textColor = UIColor.whiteColor
+		cell.textLabel.text = current_news.title[dash_index + 3, current_news.title.length]
 		cell.backgroundColor = UIColor.clearColor
 		cell
 	end
