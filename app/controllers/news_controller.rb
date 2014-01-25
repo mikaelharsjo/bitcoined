@@ -17,6 +17,8 @@ class NewsController < UITableViewController
 		tempImageView.setFrame self.tableView.frame 
 		self.tableView.backgroundView = tempImageView
 		tempImageView.release
+
+		self.tableView.contentInset = UIEdgeInsetsMake(30.0, 0.0, 0.0, 0.0)
 	end
 
 	def viewDidAppear(animated)
@@ -54,9 +56,5 @@ class NewsController < UITableViewController
 	def tableView(tableView, didSelectRowAtIndexPath:indexPath)
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 		App.open_url @news[indexPath.row].link
-	end
-
-	def tableView(tableView, titleForHeaderInSection:section)
-		'News about bitcoin'
 	end
 end
