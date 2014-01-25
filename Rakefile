@@ -2,6 +2,7 @@
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 require 'bubble-wrap/http'
+require 'bubble-wrap/rss_parser'
 require 'motion-layout'
 require 'motion-pp'
 
