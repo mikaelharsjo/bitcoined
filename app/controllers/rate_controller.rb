@@ -2,11 +2,9 @@ class RateController < UIViewController
 	def viewDidLoad
 		super
 
-		p NSUserDefaults.standardUserDefaults["exchange_market"]
+		url_maker = UrlMaker.new NSUserDefaults.standardUserDefaults["exchange_market"], nil
 
-		url = 'http://data.mtgox.com/api/2/BTCUSD/money/ticker_fast'
-
-		BW::HTTP.get(url) do |response|
+		BW::HTTP.get(url_maker.url) do |response|
 			json = BW::JSON.parse(response.body.to_str)
 			value = json['data']['last_local']['display_short']
 			@label.text = value
