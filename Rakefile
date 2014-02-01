@@ -25,7 +25,7 @@ Motion::SettingsBundle.setup do |app|
 
   app.toggle "Enable push notifications?", key: "push_notifications", default: true
 
-  app.multivalue "Exchange market", key: "exchange_market", default: "MtGox", values: ["MtGox", "CoinBase"]
+  app.multivalue "Exchange market", key: "exchange_market", default: "MtGox", values: ["mtgox", "bitstamp"], title: ['MtGox', 'Bitstamp']
 
   app.multivalue "Currency", key: "currency", default: 'USD', values: ['USD', 'EUR', 'SEK']
 
