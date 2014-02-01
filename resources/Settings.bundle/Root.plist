@@ -37,15 +37,15 @@
 			<string>Exchange market</string>
 			<key>Titles</key>
 			<array>
-				<string>MtGox</string>
-				<string>CoinBase</string>
+				<string>mtgox</string>
+				<string>bitstamp</string>
 			</array>
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
 			<key>Values</key>
 			<array>
-				<string>MtGox</string>
-				<string>CoinBase</string>
+				<string>mtgox</string>
+				<string>bitstamp</string>
 			</array>
 		</dict>
 		<dict>
