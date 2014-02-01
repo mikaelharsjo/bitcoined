@@ -71,20 +71,6 @@
 			</array>
 		</dict>
 		<dict>
-			<key>DefaultValue</key>
-			<integer>50</integer>
-			<key>Key</key>
-			<string>spiceLevel</string>
-			<key>MaximumValue</key>
-			<integer>100</integer>
-			<key>MinimumValue</key>
-			<integer>1</integer>
-			<key>Title</key>
-			<string>Spice Level</string>
-			<key>Type</key>
-			<string>PSSliderSpecifier</string>
-		</dict>
-		<dict>
 			<key>File</key>
 			<string>Acknowledgements</string>
 			<key>Title</key>
