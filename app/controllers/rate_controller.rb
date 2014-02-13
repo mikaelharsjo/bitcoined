@@ -2,12 +2,14 @@ class RateController < UIViewController
 	def viewDidLoad
 		super
 
-		url_maker = UrlMaker.new NSUserDefaults.standardUserDefaults["exchange_market"], nil
+		market = NSUserDefaults.standardUserDefaults["exchange_market"]
+		url_maker = UrlMaker.new market, nil
+		parser = RateParser.create market
 
 		BW::HTTP.get(url_maker.url) do |response|
 			json = BW::JSON.parse(response.body.to_str)
-			value = json['data']['last_local']['display_short']
-			@label.text = value
+			value = parser.parse(json)
+			@label.text = '$' + value
 		end
 
 		view.backgroundColor = UIColor.colorWithPatternImage(UIImage.imageNamed('images/golden_gradient.jpg'))
